@@ -1,1 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "primeicons/primeicons.css";
+
+body{
+    font-family: 'Montserrat', sans-serif!important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+.carousel {
+  .carousel-inner {
+    margin-top: 1px;
+  }
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon{
+  width: 4rem!important;
+  height: 4rem!important;
+}
+
+.carousel-caption{
+  bottom: 6.25rem!important;
+  h3{
+    font-family: "Homemade Apple", cursive!important;
+    font-size: 40px!important;
+    text-shadow: #111 2px 3px 3px!important;
+  }
+}
+
