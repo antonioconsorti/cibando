@@ -1,23 +1,12 @@
-<header>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-dark bg-red">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="..\assets\img\icona-cibando.png" class="logo" [alt]="label">
-        Cibando</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#"><i class="pi pi-home"></i>Home</a>
-          <a class="nav-link" href="#"><i class="pi pi-book"></i>Ricette</a>
-          <a class="nav-link" href="#"><i class="pi pi-user"></i>Contatti</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-</header>
+<!-- <div class="divisore"> -->
 
+<app-header></app-header>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
+
+<!-- </div> -->
 <!-- <ngb-carousel *ngIf="images">
 	<ng-template *ngFor="" ngbSlide>
 		<div class="picsum-img-wrapper">
@@ -29,28 +18,6 @@
 	</ng-template>
 </ngb-carousel> -->
 
-<ngb-carousel *ngIf="images.length > 1">
-	<ng-template *ngFor="let immagine of images" ngbSlide>
-		<div class="picsum-img-wrapper">
-			<img [src]="percorso + immagine.id + '.jpg'" [alt]="immagine.label" />
-		</div>
-		<div class="carousel-caption">
-			<h3>{{immagine.label}}</h3>
-		</div>
-	</ng-template>
-</ngb-carousel>
-
-<div  *ngIf="images.length == 1" class="divFoto">
-		<div class="picsum-img-wrapper" >
-			<img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label" />
-		</div>
-</div>
-
-<div class="container-title">
-  <h2>app di esempio di {{nome}}</h2>
-  <p>weuofhpuo</p>
-</div>
-
 <!-- <div>
   <ul *ngIf="allievi.length > 0">
     <li>Allo stato attuale ci sono {{allievi.length}} allievi</li>
@@ -59,8 +26,15 @@
   <div *ngIf="allievi.length == 0">Ancora non ci sono allievi</div>
 </div> -->
 
-<div>
-  <button class="">Button</button>
-</div>
+<!-- <div>
+  <input type="text" [(ngModel)]="coloreScelto"><button (click)="cambiaSwitch()">Cambia colore</button>
 
-<router-outlet></router-outlet>
+</div>
+<div id="contenitore-switch" [ngSwitch]="colore">
+  <div *ngSwitchCase="'green'" style="color:green">Verde</div>
+  <div *ngSwitchCase="'red'" style="color:red">Rosso</div>
+  <div *ngSwitchCase="'yellow'" style="color:yellow">Giallo</div>
+  <div *ngSwitchDefault>Nessun colore</div>
+</div> -->
+
+

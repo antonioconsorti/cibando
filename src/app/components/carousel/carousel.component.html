@@ -1,0 +1,47 @@
+<div class="divTextCarousel">
+  <ngb-carousel *ngIf="valoreInput === 'ricette';">
+    <ng-template *ngFor="let ricetta of ricette" ngbSlide>
+      <div class="picsum-img-wrapper">
+        <h3>{{ ricetta.title }}</h3>
+      </div>
+    </ng-template>
+  </ngb-carousel>
+</div>
+
+<div class="divCarousel" >
+    <ngb-carousel *ngIf="valoreInput === 'home' && images.length > 1;">
+      <ng-template *ngFor="let immagine of images" ngbSlide>
+        <div class="picsum-img-wrapper">
+          <img [src]="percorso + immagine.id + '.jpg'" [alt]="immagine.label" />
+        </div>
+        <div class="carousel-caption">
+          <h3>{{ immagine.label }}</h3>
+          <h5 *ngIf="immagine.id === images.length">ultima foto</h5>
+        </div>
+      </ng-template>
+    </ngb-carousel>
+
+    <ng-template *ngIf="valoreInput === 'home' && images.length === 1;"class="divFoto">
+      <img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label" />
+    </ng-template>
+</div>
+
+<!-- <ngb-carousel *ngIf="images.length > 1; else noSlide">
+	<ng-template *ngFor="let immagine of images" ngbSlide>
+		<div class="picsum-img-wrapper">
+			<img [src]="percorso + immagine.id + '.jpg'" [alt]="immagine.label" />
+		</div>
+		<div class="carousel-caption">
+			<h3>{{immagine.label}}</h3>
+      <h5 *ngIf="immagine.id === images.length">ultima foto</h5>
+		</div>
+	</ng-template>
+</ngb-carousel>
+
+<ng-template #noSlide class="divFoto">
+			<img [src]="percorso + images[0].id + '.jpg'" [alt]="images[0].label" />
+</ng-template>
+
+<ng-template #saluto>
+  ciao a tutti
+</ng-template> -->

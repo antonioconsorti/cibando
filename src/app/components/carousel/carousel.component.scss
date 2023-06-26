@@ -1,0 +1,72 @@
+@import "../../../styles/colors.scss";
+
+
+.divTextCarousel{
+
+  .carousel{
+    background-color: black!important;
+    height: 30vh!important;
+    display: flex!important;
+    align-items: center!important;
+    .carousel-inner{
+      font-family: "Homemade Apple", cursive!important;
+      font-size: 40px!important;
+      text-shadow: #111 2px 3px 3px!important;
+      color: white!important;
+      display: flex!important;
+      justify-content: space-evenly!important;
+      position: relative!important;
+      left: 6%!important;
+    }
+  }
+  .picsum-img-wrapper{
+    font-family: "Homemade Apple", cursive!important;
+    font-size: 40px!important;
+    text-shadow: #111 2px 3px 3px!important;
+    color: white!important;
+    display: flex!important;
+    justify-content: space-evenly!important;
+    position: relative!important;
+  }
+
+  .carousel-caption{
+      font-family: "Homemade Apple", cursive!important;
+      font-size: 40px!important;
+      text-shadow: #111 2px 3px 3px!important;
+      color: white!important;
+      display: flex!important;
+      justify-content: center!important;
+      // .h3{
+      //   position: relative;
+      // }
+  }
+  .carousel.slide{
+    clear: both!important;
+  }
+}
+
+.divCarousel{
+
+  .carousel {
+    margin-top: 1px;
+    .carousel-inner {
+      margin-top: 1px;
+    }
+  }
+
+  .carousel-control-next-icon, .carousel-control-prev-icon{
+    width: 4rem!important;
+    height: 4rem!important;
+    background-color: $primary-color-1!important;
+    border-radius: 50%!important;
+  }
+
+  .carousel-caption{
+    bottom: 6.25rem!important;
+    h3{
+      font-family: "Homemade Apple", cursive!important;
+      font-size: 40px!important;
+      text-shadow: #111 2px 3px 3px!important;
+    }
+  }
+}

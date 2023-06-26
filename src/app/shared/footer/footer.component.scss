@@ -1,0 +1,12 @@
+@import "../../../styles/colors.scss";
+
+.logo{
+  width: 100px;
+  margin-right: 10px;
+}
+.bg-red{
+  background-color: $primary-color-1!important;
+  height: 200px;
+  display: flex;
+  align-items: center;padding: 20px;
+}

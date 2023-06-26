@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import "primeicons/primeicons.css";
+@import "../src/styles/colors.scss";
 
 body{
     font-family: 'Montserrat', sans-serif!important;
@@ -9,23 +10,46 @@ body{
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
 
-.carousel {
-  .carousel-inner {
-    margin-top: 1px;
-  }
-}
+// .carousel {
+//   .carousel-inner {
+//     margin-top: 1px;
+//   }
+// }
 
 .carousel-control-next-icon, .carousel-control-prev-icon{
   width: 4rem!important;
   height: 4rem!important;
+  background-color: $primary-color-1!important;
+  border-radius: 50%!important;
 }
 
-.carousel-caption{
-  bottom: 6.25rem!important;
-  h3{
-    font-family: "Homemade Apple", cursive!important;
-    font-size: 40px!important;
-    text-shadow: #111 2px 3px 3px!important;
+ .carousel-caption{
+//   bottom: 6.25rem!important;
+   h3{
+     font-family: "Homemade Apple", cursive!important;
+     font-size: 40px!important;
+     text-shadow: #111 2px 3px 3px!important;
+  }
+ }
+
+.testoEvidenziato{
+  background-color: yellow;
+  width: 400px;
+}
+
+.contenitore{
+  width: 100%!important;
+  padding: 20px 30px;
+
+  h2{
+    font-weight: bold;
+    font-size: 35;
+  }
+  p{
+    text-align: justify;
   }
 }
 
+p{
+  text-align: justify;
+}
