@@ -5,6 +5,8 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { ErrorComponent } from './components/error/error.component';
 import { DetailComponent } from './components/recipes/detail/detail.component';
 import { RecipesListComponent } from './components/recipes/recipes-list/recipes-list.component';
+import { UserComponent } from './components/user/user.component';
+import { RegistrationComponent } from './components/user/registration/registration.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,9 @@ const routes: Routes = [
     { path: 'dettaglio/:title/:_id', component: DetailComponent },
     { path: '', component: RecipesListComponent, pathMatch: 'full' }
   ] },
+  { path: 'user', component: UserComponent, children: [
+    { path: '', component: RegistrationComponent, pathMatch: 'full' }
+  ]},
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: 'error' }
 ];

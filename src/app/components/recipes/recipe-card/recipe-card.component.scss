@@ -23,6 +23,9 @@
     }
     .card-text{
       text-align: justify;
+      height: 135px;
+      padding: 10px;
+      //overflow-y: auto;
     }
     a.btn.btn-primary {
       font-size: 15px;
@@ -33,5 +36,32 @@
       font-weight: 700;
       padding: 13px;
     }
+  }
+}
+@media screen and (max-width: 960px) {
+  .container-card{
+    width: 30%;
+    margin-left: 2.5%;
+  }
+  .card-text{
+    height: 300px!important;
+  }
+}
+@media screen and (max-width: 660px) {
+  .container-card{
+    width: 47%;
+    margin-left: 2%;
+  }
+  .card-text{
+    height: 200px!important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .container-card{
+    width: 98%;
+    margin-left: 1%;
+  }
+  .card-text{
+    height: auto!important;
   }
 }

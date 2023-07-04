@@ -1,0 +1,37 @@
+@import "../../../../styles/colors.scss";
+
+.card.text-black {
+  border-color: $primary-color-1;
+  border-width: 3px;
+}
+
+label.form-label, label.form-check-label {
+  font-weight: bold;
+}
+label.form-label {
+  margin-left: 25px;
+}
+a {
+  color: $primary-color-1;
+}
+input {
+  font-weight: bold;
+}
+i{
+  margin-right: 10px;
+}
+.divIInput{
+  display: flex; align-items: center;
+}
+button.btn.btn-primary.btn-lg {
+  background-color: $primary-color-1;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid $primary-color-1;
+}
+input.ng-valid.ng-touched {
+  border: 1px solid green;
+}
+
+

@@ -1,0 +1,214 @@
+<!--
+<section class="" style="padding: 20px; background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body" style="padding: 0;">
+            <div class="row justify-content-center">
+              <div class="order-2 order-lg-1" style="width: 40%;">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
+
+                <form class="mx-1 mx-md-4" #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div class="divIInput">
+                        <i class="pi pi-user"></i>
+                        <input type="text" id="form3Example1c" class="form-control" placeholder="nominativo" name="name" ngModel />
+                      </div>
+                      <label class="form-label" for="form3Example1c">Il tuo nome</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div style="display: flex; align-items: center;">
+                        <i class="pi pi-envelope"></i>
+                        <input type="email" id="form3Example3c" class="form-control" placeholder="email" name="email" ngModel />
+                      </div>
+                      <label class="form-label" for="form3Example3c">La tua email</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div style="display: flex; align-items: center;">
+                        <i class="pi pi-lock"></i>
+                        <input type="password" id="form3Example4c" class="form-control" placeholder="password" name="password" ngModel />
+                      </div>
+                        <label class="form-label" for="form3Example4c">Password</label>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div style="display: flex; align-items: center;">
+                        <i class="pi pi-lock"></i>
+                        <input type="password" id="form3Example4cd" class="form-control" name="ripeti" ngModel />
+                      </div>
+                        <label class="form-label" for="form3Example4cd">Ripeti password</label>
+                    </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c"  name="box" ngModel />
+                    <label class="form-check-label" for="form2Example3">
+                      Dichiaro di accettare i <a href="#!">Termini del servizio</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg">Registrati</button>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class=" d-flex align-items-center order-1 order-lg-2" style="width: 60%;">
+
+                <div [ngStyle]="{'background-image': 'url(' + 'https://www.lospicchiodaglio.it/img/news/sapete-cos-e-il-junk-food.jpg'+ ')'}"
+                  class="" style="background-repeat: no-repeat; background-position: center; background-size: cover; width: 100%; height: 100%;border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+ <!-- REACTIVE FORM -->
+<section class="" style="padding: 20px; background-color: #eee;">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body" style="padding: 0;">
+            <div class="row justify-content-center">
+              <div class="order-2 order-lg-1" style="width: 40%;">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registrati</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div class="divIInput">
+                        <i class="pi pi-user"></i>
+                        <input type="text" id="form3Example1c" class="form-control" placeholder="nominativo" name="name" formControlName="name" ngModel />
+                      </div>
+                      <label class="form-label" for="form3Example1c">Il tuo nome</label>
+                      <p class="help is-danger" *ngIf="!form.get('name').valid && form.get('name').touched">Il campo nome è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div style="display: flex; align-items: center;">
+                        <i class="pi pi-envelope"></i>
+                        <input type="email" id="form3Example3c" class="form-control" placeholder="email" name="email" formControlName="email" ngModel />
+                      </div>
+                      <label class="form-label" for="form3Example3c">La tua email</label>
+                      <p class="help is-danger" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">Il campo email è obbligatorio</p>
+                      <p class="help is-danger" *ngIf="form.controls.email.hasError('email')  && form.controls.email.touched">L'email non è valida</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div style="display: flex; align-items: center;">
+                        <i class="pi pi-lock"></i>
+                        <p-password  id="form3Example4c" class="form-control" placeholder="password" name="password" formControlName="password" [toggleMask]="true" strongRegex="^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$">
+                          <ng-template pTemplate="header">
+                            <h6>Scrivi una password</h6>
+                          </ng-template>
+                          <p-divider></p-divider>
+                          <ng-template pTemplate="footer">
+                            <p>Suggerimenti</p>
+                            <ul style="line-height: 1.5;">
+                              <li>1 lettera maiuscola</li>
+                              <li>1 lettera minuscola</li>
+                             <li>1 numero</li>
+                              <li>minimo 8 massimo 16</li>
+                            </ul>
+                          </ng-template>
+                        </p-password>
+                      </div>
+                        <label class="form-label" for="form3Example4c">Password</label>
+                        <p class="help is-danger" *ngIf="form.controls.password.hasError('pattern') && form.controls.password.touched">Il campo password deve avere 1 Maiuscola, 1 minuscola, 1 numero, 1 carattere spazio</p>
+                        <p class="help is-danger" *ngIf="form.controls.password.hasError('required') && form.controls.password.touched">Il campo password è obbligatorio</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div style="display: flex; align-items: center;">
+                        <i class="pi pi-lock"></i>
+                        <p-password  id="form3Example4c" class="form-control" placeholder="password" name="ripeti" formControlName="ripeti" [toggleMask]="true" (ngModelChange)="controlloPassword()"></p-password>
+                        </div>
+                        <label class="form-label" for="form3Example4cd">Ripeti password</label>
+                        <p class="help is-danger" *ngIf="!controlloPassword() && form.get('ripeti').dirty">Il campo non corrisponde con la password</p>
+                      </div>
+                  </div>
+
+                  <div class="form-check d-flex justify-content-center mb-5">
+                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c"  name="box" formControlName="box" ngModel />
+                    <label class="form-check-label" for="form2Example3">
+                      Dichiaro di accettare i <a href="#!">Termini del servizio</a>
+                    </label>
+                  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg"  [disabled]="!form.valid">Registrati</button>
+                  </div>
+
+
+                 <div class="accordion" id="accordionPrivacy">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#privacy" aria-expanded="true" aria-controls="privacy">
+        Privacy
+      </button>
+    </h2>
+    <div id="privacy" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionPrivacy">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trattamentoDeiDati" aria-expanded="false" aria-controls="trattamentoDeiDati">
+        Trattamento dei dati
+      </button>
+    </h2>
+    <div id="trattamentoDeiDati" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionPrivacy">
+      <div class="accordion-body">
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                </form>
+
+              </div>
+              <div class=" d-flex align-items-center order-1 order-lg-2" style="width: 60%;">
+
+                <div [ngStyle]="{'background-image': 'url(' + 'https://www.lospicchiodaglio.it/img/news/sapete-cos-e-il-junk-food.jpg'+ ')'}"
+                  class="" style="background-repeat: no-repeat; background-position: center; background-size: cover; width: 100%; height: 100%;border-top-right-radius: 20px; border-bottom-right-radius: 20px;">
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

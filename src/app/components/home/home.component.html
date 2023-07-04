@@ -15,3 +15,20 @@
   <h2>Ecco le ultime ricette:</h2>
 </div>
 <app-recipe-card [recipes]="ultime4"></app-recipe-card>
+
+
+<!-- <ng-template [ngIf]="name"> -->
+  <div class="overlay" *ngIf="name">
+    <div class="modale">
+      <h2>Registrazione ruscita:</h2>
+      <div class="divP">
+        <ul>
+          <li>nome: {{name}}</li>
+          <li>email: {{email}}</li>
+        </ul>
+      </div>
+
+      <button (click)="chiudiModale()">CHIUDI</button>
+    </div>
+  </div>
+<!-- </ng-template> -->

@@ -1,0 +1,15 @@
+<ng-template [ngIf]="name">
+  <div class="overlay">
+    <div class="modale">
+      <h2>Registrazione ruscita:</h2>
+      <div class="divP">
+        <ul>
+          <li>nome: {{name}}</li>
+          <li>email: {{email}}</li>
+        </ul>
+      </div>
+
+      <button (click)="chiudiModale()">CHIUDI</button>
+    </div>
+  </div>
+</ng-template>

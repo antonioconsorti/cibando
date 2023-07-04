@@ -53,3 +53,19 @@ body{
 p{
   text-align: justify;
 }
+.active{
+  color: white!important;
+  font-weight: bold!important;
+}
+
+.p-password {
+  width: 100%!important;
+  padding: 0;
+  margin: 0;
+  input.p-inputtext.p-component.p-element.ng-tns-c3539607493-0.p-password-input , input.p-inputtext.p-component.p-element.ng-tns-c3539607493-1.p-password-input {
+    border: none!important;
+    width: 100%!important;
+    padding: 0!important;
+    margin: 0;
+  }
+}

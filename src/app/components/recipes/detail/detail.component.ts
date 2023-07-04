@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { take } from 'rxjs';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipesService } from 'src/app/services/recipes.service';
 
@@ -11,7 +12,7 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class DetailComponent implements OnInit{
 
   ricetta: Recipe;
-  percorso = '../../../../assets/img/difficolta-';
+  percorso = '../../../../assets/img/difficolta-'
 
   constructor(
     private recipeService: RecipesService,
@@ -24,8 +25,10 @@ export class DetailComponent implements OnInit{
 
   onGetRecipe(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('_id'));
-    this.recipeService.getRecipe(id).subscribe({
-      next: (res) => {
+    this.recipeService.getRecipe(id).pipe(
+      take(1)
+      ).subscribe({
+        next: (res) => {
         this.ricetta = res;
       },
       error: (e) => console.log(e)

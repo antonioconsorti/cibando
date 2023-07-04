@@ -1,11 +1,14 @@
-  <div class="container-card" *ngFor="let ricetta of recipes">
+
+  <p-paginator (onPageChange)="paginate($event)" [rows]="ricettePerPagina" [totalRecords]="recipes.length"></p-paginator>
+
+  <div class="container-card" *ngFor="let ricetta of recipes | slice: (page * ricettePerPagina) - ricettePerPagina : page * ricettePerPagina">
     <div class="card">
-        <div class="card-image" [ngStyle]="{'background-image': 'url(' + ricetta.image + ')'}"></div>
+        <div class="card-image" [ngStyle]="{'background-image': 'url(' + ricetta.image + ')'}" (click)="inviaTitolo(ricetta.title)" style="cursor: pointer;"></div>
         <div class="card-body">
           <h5 class="card-title">{{ricetta.title}} - code: {{ricetta._id}}</h5>
-          <p class="card-text">{{ricetta.description | slice: 0-250}}...</p>
+          <p class="card-text">{{ricetta.description | slice: 0:accorciaTesto(ricetta.description)}}...</p>
           <!-- <a routerLink="dettaglio/{{ricetta._id}}" class="btn btn-primary">Visualizza</a> -->
-          <a [routerLink]="'dettaglio/'+ricetta.title+'/'+ricetta._id" class="btn btn-primary">Visualizza</a>
+          <a [routerLink]="'/ricette/dettaglio/'+ricetta.title+'/'+ricetta._id" class="btn btn-primary">Visualizza</a>
       </div>
     </div>
   </div>
