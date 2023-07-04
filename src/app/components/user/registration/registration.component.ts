@@ -5,12 +5,16 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent implements OnInit{
+
+  titolo = 'pasta al sugo';
+  id = 24;
 
   constructor(
     private config: PrimeNGConfig,
@@ -51,7 +55,19 @@ export class RegistrationComponent implements OnInit{
 
   }
 
-  open(content: any){
+  open(content: any, titolo?: string, id?: number){
+    let title = titolo;
+    let idNum = id;
 
+    this.ngbModal.open(content, {ariaLabelledBy: 'modale privacy', size: 'lg', centered: true}).result
+    .then((res) => {
+      console.log('azione da eseguire in caso positivo' + 'titolo: ' + title + 'id: ' + idNum);
+    }).catch((res)=> {
+      console.log('nessuna azione da eseguire');
+    })
   }
+  // open(content: any) {
+	// 	const modalRef = this.ngbModal.open(content, {ariaLabelledBy: 'modale privacy', size: 'lg', centered: true});
+	// 	modalRef.componentInstance.name = 'World';
+	// }
 }

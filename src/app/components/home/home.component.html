@@ -18,9 +18,9 @@
 
 
 <!-- <ng-template [ngIf]="name"> -->
-  <div class="overlay" *ngIf="name">
+  <!-- <div class="overlay" *ngIf="name">
     <div class="modale">
-      <h2>Registrazione ruscita:</h2>
+      <h2>Registrazione ruscita</h2>
       <div class="divP">
         <ul>
           <li>nome: {{name}}</li>
@@ -30,5 +30,22 @@
 
       <button (click)="chiudiModale()">CHIUDI</button>
     </div>
-  </div>
+  </div> -->
 <!-- </ng-template> -->
+<button class="btn btn-lg btn-outline-primary" (click)="open(activeModal)">Launch demo modal</button>
+
+<ng-template #activeModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Registrazione ruscita</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li>name: <strong>{{ name }}</strong></li>
+      <li>email: <strong>{{ email }}</strong></li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+  </div>
+  </ng-template>
