@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { elementAt } from 'rxjs';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipesService } from 'src/app/services/recipes.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-recipe-card',
@@ -14,6 +15,11 @@ export class RecipeCardComponent {
 @Output() messaggio = new EventEmitter();
 page = 1;
 ricettePerPagina = 4;
+
+ruolo: any;
+recupera_ruolo = this.userService.ruoloUtente.subscribe(res => this.ruolo = res);
+
+constructor(private recipesService: RecipesService, private userService: UserService){}
 
 accorciaTesto(descrizione): number{
   let lunghezzaMassima = 180;

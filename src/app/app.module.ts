@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
 import { DividerModule } from 'primeng/divider';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PrimeNGConfig } from 'primeng/api';
 import { PaginatorModule } from 'primeng/paginator';
+import { ToastModule } from 'primeng/toast';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +25,13 @@ import { RecipesListComponent } from './components/recipes/recipes-list/recipes-
 import { UserComponent } from './components/user/user.component';
 import { RegistrationComponent } from './components/user/registration/registration.component';
 import { ModaleComponent } from './components/modale/modale.component';
+import { NewRecipeComponent } from './components/new-recipe/new-recipe.component';
+import { ChangeColorDirective } from './directives/change-color.directive';
+import { OnPlaceholderDirective } from './directives/on-placeholder.directive';
+import { CombineComponent } from './components/combine/combine.component';
+import { ChangeSizeDirective } from './directives/change-size.directive';
+import { LoginComponent } from './components/user/login/login.component';
+import { ProfileComponent } from './components/user/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +48,13 @@ import { ModaleComponent } from './components/modale/modale.component';
     UserComponent,
     RegistrationComponent,
     ModaleComponent,
+    NewRecipeComponent,
+    ChangeColorDirective,
+    OnPlaceholderDirective,
+    CombineComponent,
+    ChangeSizeDirective,
+    LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +65,10 @@ import { ModaleComponent } from './components/modale/modale.component';
     PasswordModule,
     DividerModule,
     BrowserAnimationsModule,
-    PaginatorModule
+    PaginatorModule,
+    HttpClientModule,
+    ToastModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

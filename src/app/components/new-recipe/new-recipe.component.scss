@@ -1,0 +1,95 @@
+@import "../../../styles/colors.scss";
+.mask {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.bg-image{
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+.card{
+  border: solid 3px $primary-color-1;
+color: black;
+display: flex;
+align-items: center;
+.card-body{
+  width: 80%;
+  h2 {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+}
+.form-check{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  a{
+    u{
+      color: $primary-color-1;
+    }
+  }
+
+}
+}
+.account{
+margin-top: 30px;
+display: flex;
+justify-content: center;
+color: $primary-color-1;
+u{
+  color: $primary-color-1;
+}
+}
+input.ng-invalid.ng-touched {
+border: 3px solid rgb(125, 0, 0);
+}
+input.ng-valid.ng-touched {
+border: 3px solid rgb(0, 95, 0);
+}
+.divisore{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+p{
+  color: rgb(71, 1, 1);
+}
+}
+button.btn.btn-primary.btn-lg {
+  background-color: $primary-color-1;
+}
+label.form-label, label.form-check-label, h2 {
+  font-weight: bold;
+}
+.modal-header, .modal-footer {
+  background-color: $primary-color-1;
+}
+.imageModale{
+  width: 500px;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+}
+button.btn.btn-outline-dark{
+  background-color: white;
+  color: black
+}
+
+@media screen and (max-width: 960px) {
+  .imageModale{
+    width: 300px;
+    height: 150px;
+  }
+}
+@media screen and (max-width: 660px) {
+  .imageModale{
+    width: 200px;
+    height: 100px;
+  }
+}
+
+

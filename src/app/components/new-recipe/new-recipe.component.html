@@ -1,0 +1,100 @@
+
+<section class="vh-100 bg-image"
+  style="background-image: url('https://ambimed-group.com/img/articles/599.jpg');">
+  <div class="mask">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+              <h2>Aggiungi ricetta</h2>
+
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" placeholder="titolo" name="title" formControlName="title" ngModel />
+                  <div class="divisore">
+                    <label class="form-label" for="form3Example1cg">Titolo</label>
+                    <p class="help is-danger" *ngIf="!form.get('title').valid && form.get('title').touched">Il campo obbligatorio</p>
+                  </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <ckeditor [editor]="Editor" class="description" formControlName="description" (ready)="onReady($event)"></ckeditor>
+                  <div class="divisore">
+                    <label class="form-label" for="form3Example3cg">Descrizione</label>
+                </div>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="form3Example3cg" class="form-control form-control-lg" placeholder="https://......" name="image" formControlName="image" ngModel />
+                  <div class="divisore">
+                    <label class="form-label" for="form3Example3cg">Immagine</label>
+                    <p class="help is-danger" *ngIf="form.controls.image.hasError('required') && form.controls.image.touched">Il campo è obbligatorio</p>
+                </div>
+                </div>
+
+                <!-- <div class="form-outline mb-4">
+                  <input type="text" id="form3Example3cg" class="form-control form-control-lg" placeholder="yyyy/mm/dd" name="published" formControlName="published" ngModel />
+                  <div class="divisore">
+                    <label class="form-label" for="form3Example3cg">Data publicazione</label>
+                    <p class="help is-danger" *ngIf="form.controls.published.hasError('required') && form.controls.published.touched">Il campo è obbligatorio</p>
+                    <p class="help is-danger" *ngIf="form.controls.published.hasError('pattern') && form.controls.published.touched">devi inserire yyyy/mm (massimo 12)/dd (massimo 31)</p>
+                  </div>
+                </div> -->
+
+                <div class="form-outline mb-4">
+                  <input type="number" id="form3Example3cg" class="form-control form-control-lg" placeholder="1/2/3/4/5" name="difficulty" formControlName="difficulty" ngModel />
+                  <div class="divisore">
+                    <label class="form-label" for="form3Example3cg">Difficoltà</label>
+                    <p class="help is-danger" *ngIf="form.controls.difficulty.hasError('required') && form.controls.difficulty.touched">Il campo è obbligatorio</p>
+                    <p class="help is-danger" *ngIf="form.controls.difficulty.hasError('pattern') && form.controls.difficulty.touched">devi inserire uno tra 1 / 2 / 3 / 4 / 5</p>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary btn-lg" (click)="open(activeModal)" [disabled]="!form.valid">Aggiungi</button>
+                </div>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #activeModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Riassunto</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')" routerLink="/home"></button>
+  </div>
+  <div class="modal-body" style="display: flex; flex-direction: column;">
+    <div class="imageModale" [ngStyle]="{'background-image': 'url(' + form.value.image + ')'}"></div>
+    <ul>
+      <li>Titolo: <strong>{{ form.value.title }}</strong></li>
+      <li>
+
+        <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+          <button class="accordion-button collapsed show" type="button" data-bs-toggle="collapse" data-bs-target="#description" aria-expanded="true" aria-controls="description">
+            Descrizione:
+          </button>
+        </h2>
+        <div class="accordion-body" id="description" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionDescription">
+          <div class="accordion-body"><span [innerHTML]="form.value.description"></span></div>
+        </div>
+      </div>
+
+    </li>
+      <!-- <li>Data publicazione: <strong>{{ form.value.published }}</strong></li> -->
+      <li>Difficoltà: <strong>{{ form.value.difficulty }}</strong></li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="createRecipe()" (click)="modal.close('Close click')" (click)="clearForm()">Conferma ricetta</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')" routerLink="/ricette">Close</button>
+  </div>
+  </ng-template>

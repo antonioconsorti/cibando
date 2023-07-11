@@ -99,7 +99,7 @@
                     <div class="form-outline flex-fill mb-0">
                       <div class="divIInput">
                         <i class="pi pi-user"></i>
-                        <input type="text" id="form3Example1c" class="form-control" placeholder="nominativo" name="name" formControlName="name" ngModel />
+                        <input type="text" id="form3Example1c" class="form-control" placeholder="nominativo" name="name" formControlName="name" ngModel appChangeColor appOnPlaceholder />
                       </div>
                       <label class="form-label" for="form3Example1c">Il tuo nome</label>
                       <p class="help is-danger" *ngIf="!form.get('name').valid && form.get('name').touched">Il campo nome è obbligatorio</p>
@@ -115,6 +115,16 @@
                       <label class="form-label" for="form3Example3c">La tua email</label>
                       <p class="help is-danger" *ngIf="form.controls.email.hasError('required') && form.controls.email.touched">Il campo email è obbligatorio</p>
                       <p class="help is-danger" *ngIf="form.controls.email.hasError('email')  && form.controls.email.touched">L'email non è valida</p>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                      <div style="display: flex; align-items: center;">
+                        <!-- <i class="pi pi-envelope"></i> -->
+                        <textarea class="note" formControlName="note"></textarea>
+                      </div>
+                      <label class="form-label" for="form3Example3c">Le tue note</label>
                     </div>
                   </div>
 

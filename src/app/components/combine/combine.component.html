@@ -1,0 +1,68 @@
+<!-- <div>
+  <h2>Ecco i nostri clienti:</h2>
+  <ul>
+    //<li *ngFor="let cliente of gruppi[0] | async">Nome: {{cliente.name || cliente}}</li>
+    <li *ngFor="let cliente of gruppi[0] | async">Nome: {{cliente.name}}</li>
+  </ul>
+</div>
+
+<div>
+  <h2>Ecco i nostri rivenditori:</h2>
+  <ul>
+    <li *ngFor="let cliente of gruppi[1] | async">Nome: {{cliente.name}}</li>
+  </ul>
+</div>
+
+<div>
+  <h2>Ecco i nostri allievi:</h2>
+  <ul>
+    <li *ngFor="let cliente of gruppi[2] | async">Nome: {{cliente.name}}</li>
+  </ul>
+</div> -->
+
+
+<!-- <div *ngIf="gruppiCombinati$ | async">
+  <div>
+    <h2>Ecco i nostri clienti:</h2>
+    <ul>
+        <li *ngFor="let cliente of gruppi[0]">Nome: {{cliente.name}}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Ecco i nostri rivenditori:</h2>
+    <ul>
+        <li *ngFor="let cliente of gruppi[1]">Nome: {{cliente.name}}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h2>Ecco i nostri allievi:</h2>
+    <ul>
+        <li *ngFor="let cliente of gruppi[2]">Nome: {{cliente}}</li>
+    </ul>
+  </div>
+</div>
+
+<div *ngIf="!gruppi.length" id="contenitore">
+  <img src="https://cdn.dribbble.com/users/108183/screenshots/2301400/spinnervlll.gif" style="width: 100%;height: 100%;">
+</div> -->
+
+
+<div *ngIf="gruppiCombinati$ | async" style="display: flex; flex-direction: column;">
+  <ng-container *ngFor="let gruppo of gruppi; let i = index">
+    <div>
+      <h2 *ngIf="i === 0">Ecco Le ricette di difficoltà 1:</h2>
+      <h2 *ngIf="i === 1">Ecco Le ricette di difficoltà 2 e 3:</h2>
+      <h2 *ngIf="i === 2">Ecco Le ricette di difficoltà 4 e 5:</h2>
+      <ul style="display: flex;" *ngFor="let ricette of gruppo">
+        <li style="margin-right: 50px;">{{ ricette.title }}</li>
+        <li class="liImage" [ngStyle]="{'background-image': 'url(' + ricette.image + ')'}"></li>
+      </ul>
+    </div>
+  </ng-container>
+</div>
+
+<div *ngIf="!gruppi.length" id="contenitore" style="display: flex; justify-content: center; align-items: center;">
+  <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/48c99328741557.55cfd3c8be389.gif" style="width: 60%;height: 60%;">
+</div>

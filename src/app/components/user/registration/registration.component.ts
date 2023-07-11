@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -37,13 +36,21 @@ export class RegistrationComponent implements OnInit{
     email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl('', [Validators.required, Validators.pattern(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/)]),
     ripeti: new FormControl('', Validators.required),
-    box: new FormControl(false, Validators.requiredTrue)
+    box: new FormControl(false, Validators.requiredTrue),
+    note: new FormControl()
   })
 
   onSubmit(){
     this.form;
     const user = {name: this.form.value.name, email: this.form.value.email}
     this.userService.datiUtente.next(user);
+    const dati = {
+      name: this.form.value.name,
+      email: this.form.value.email,
+      note: this.form.value.note,
+      password: this.form.value.password
+    };
+    this.userService.insertUser(dati).subscribe();
     this.router.navigateByUrl('home');
   }
   controlloPassword(): boolean{

@@ -69,3 +69,25 @@ p{
     margin: 0;
   }
 }
+.p-paginator {
+
+  color: $primary-color-1!important;
+  button{
+    color: $primary-color-1!important;
+    border-radius: 50%!important;
+  }
+  span.p-paginator-pages{
+    button{
+      color: $primary-color-1;
+    }button.p-ripple.p-element.p-paginator-page.p-paginator-element.p-link.p-highlight{
+      color: black!important;
+      background-color: $primary-color-1;
+      font-weight: bold;
+    }
+  }
+}
+
+.ck.ck-content.ck-editor__editable {
+  border: 1px solid gray;
+  min-height: 200px;
+}

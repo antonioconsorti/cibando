@@ -24,7 +24,8 @@ export class DetailComponent implements OnInit{
   }
 
   onGetRecipe(): void {
-    const id = Number(this.activatedRoute.snapshot.paramMap.get('_id'));
+    // const id = Number(this.activatedRoute.snapshot.paramMap.get('_id')); //mock
+    const id = String(this.activatedRoute.snapshot.paramMap.get('_id'));
     this.recipeService.getRecipe(id).pipe(
       take(1)
       ).subscribe({
@@ -37,7 +38,8 @@ export class DetailComponent implements OnInit{
   onGetRecipe2(): void {
     this.activatedRoute.params.subscribe((urlParams) => {
       const id = urlParams['_id'];
-      const idNumb = Number(id);
+      // const idNumb = Number(id); //mock
+      const idNumb = String(id);
       // const titolo = p['title'];
 
       this.recipeService.getRecipe(idNumb).subscribe(

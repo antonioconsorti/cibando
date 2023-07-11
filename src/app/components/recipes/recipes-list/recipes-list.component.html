@@ -1,4 +1,4 @@
 <h2>Le nostre ricette</h2>
 <p> {{messaggio}} </p>
-<app-recipe-card [recipes]="ricette" (messaggio)="riceviTitolo($event)"></app-recipe-card>
+<app-recipe-card [recipes]="ricette$ | async" (messaggio)="riceviTitolo($event)"></app-recipe-card>
 <app-carousel valoreInput="ricette"></app-carousel>

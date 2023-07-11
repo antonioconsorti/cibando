@@ -1,0 +1,6 @@
+<h1>Ciao {{ user1.name }}</h1>
+<p>Nome: {{ user1.name }}</p>
+<p>Ruolo: {{ user1.role }}</p>
+<p *ngIf="user1.note !== null">Note: {{ user1.note }}</p>
+<p *ngIf="user1.note === null">Note: nessuna nota</p>
+<p>Registrato il: {{ dataRegistrazione }}</p>
