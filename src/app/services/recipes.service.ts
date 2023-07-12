@@ -15,24 +15,27 @@ export class RecipesService {
   constructor(private http: HttpClient) { }
 
   getRecipes(): Observable<Recipe[]> {
-    // return of (RECIPES); //mock
+    return of (RECIPES); //mock
     //return this.http.get<Recipe[]>('pippo/' + this.apiBaseUrl  + '/...') //con gli apici singoli
     //return this.http.get<Recipe[]>(`pippo/${this.apiBaseUrl}/...`) //alt96 per i backtic
-    return this.http.get<Recipe[]>(`${this.apiBaseUrl}/`)
+    // return this.http.get<Recipe[]>(`${this.apiBaseUrl}/`)
   }
 
   getRecipesAsync() {
-    return this.http.get<Recipe[]>(`${this.apiBaseUrl}/`)
+    return of (RECIPES); //mock
+    // return this.http.get<Recipe[]>(`${this.apiBaseUrl}/`)
   }
 
-  getRecipe(id: string): Observable<Recipe> {
-    // const recipe = RECIPES.find(ricetta => ricetta._id === id); //mock
-    // return of (recipe); //mock
-    return this.http.get<Recipe>(`${this.apiBaseUrl}/${id}`);
+  getRecipe(id: string | number): Observable<Recipe> {
+    const recipe = RECIPES.find(ricetta => ricetta._id === id); //mock
+    return of (recipe); //mock
+    // return this.http.get<Recipe>(`${this.apiBaseUrl}/${id}`);
   }
 
   createRecipe(recipeData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiBaseUrl}/`, recipeData);
+    // return this.http.post<any>(`${this.apiBaseUrl}/`, recipeData);
+    RECIPES.push(recipeData); //mock
+    return of (RECIPES); //mock
   }
 
 

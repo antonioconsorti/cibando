@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-acaso',
@@ -6,17 +6,19 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./acaso.component.scss']
 })
 export class AcasoComponent {
+  @Input() oggettoFiglio: string;
+  @Output() oggettoEmesso = new EventEmitter<string>();
+  @ViewChild('nuovoOggetto') nuovoOggetto: ElementRef;
 
+    addNuovoOggetto(oggetto){
+      console.log(oggetto)
 
-  fraseInput: string | undefined;
-  @Output() fraseOutput = new EventEmitter<string>();
-  @Input() dalPadre: string[] = [];
+      this.oggettoEmesso.emit(oggetto);
+      this.nuovoOggetto.nativeElement.value = '';
+    }
 
-  pulisciArray() {
-    this.dalPadre = [];
+    removeOggetti(){
+      this.oggettoEmesso.emit('elimina');
+    }
+
   }
-
-  inviaFrase() {
-    this.fraseOutput.emit(this.fraseInput);
-  }
-}

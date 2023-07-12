@@ -11,9 +11,9 @@ import { take, first, Observable, map } from 'rxjs';
 export class RecipesListComponent implements OnInit{
 
   // ricette: Recipe[];
-  ricette$: Observable<Recipe[]> = this.recipesService.getRecipesAsync().pipe(
-    map(ricette => ricette.filter(ricetteFiltrate => ricetteFiltrate.difficulty < 5)), //posso fermarmi anche a primadi .pipe per farlo funzionare senza condizioni
-  ); //$ convenzione che si usa per indicare che si usa nella pipe async
+  // ricette$: Observable<Recipe[]> = this.recipesService.getRecipesAsync().pipe(
+  //   map(ricette => ricette.filter(ricetteFiltrate => ricetteFiltrate.difficulty < 5)), //posso fermarmi anche a primadi .pipe per farlo funzionare senza condizioni
+  // ); //$ convenzione che si usa per indicare che si usa nella pipe async
 
   messaggio: string;
 

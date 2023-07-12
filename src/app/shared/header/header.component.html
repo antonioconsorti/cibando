@@ -10,8 +10,8 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" aria-current="page" routerLink="home" routerLinkActive="active"><i class="pi pi-home"></i>Home</a>
-          <a class="nav-link" routerLink="ricette" routerLinkActive="active" matRipple [matRippleCentered]="true" [matRippleRadius]="50" [matRippleUnbounded]="true"><i class="pi pi-book"></i>Ricette</a>
-          <a class="nav-link" routerLink="ricette/nuovaRicetta" routerLinkActive="active" *ngIf="ruolo == 'admin' && auth.isLogged()" matRipple [matRippleCentered]="true" [matRippleRadius]="50" [matRippleUnbounded]="true"><i class="pi pi-plus-circle"></i>Nuova ricetta</a>
+          <a class="nav-link" routerLink="ricette/1" routerLinkActive="active" matRipple [matRippleCentered]="true" [matRippleRadius]="50" [matRippleUnbounded]="true"><i class="pi pi-book"></i>Ricette</a>
+          <a class="nav-link" routerLink="ricette/1/nuovaRicetta" routerLinkActive="active" *ngIf="auth.isLogged()" matRipple [matRippleCentered]="true" [matRippleRadius]="50" [matRippleUnbounded]="true"><i class="pi pi-plus-circle"></i>Nuova ricetta</a>
           <a class="nav-link" routerLink="user/login" routerLinkActive="active" *ngIf="!auth.isLogged()"><i class="pi pi-user"></i>Accedi</a>
           <a class="nav-link" routerLink="profile" routerLinkActive="active" *ngIf="auth.isLogged()"><i class="pi pi-user"></i>Profilo</a>
           <a class="nav-link" routerLink="contatti" routerLinkActive="active"><i class="pi pi-envelope"></i>Contatti</a>

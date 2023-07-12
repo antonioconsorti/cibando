@@ -12,7 +12,9 @@ import { RecipesService } from 'src/app/services/recipes.service';
 export class DetailComponent implements OnInit{
 
   ricetta: Recipe;
-  percorso = '../../../../assets/img/difficolta-'
+  percorso = '../../../../assets/img/difficolta-';
+
+  pag;
 
   constructor(
     private recipeService: RecipesService,
@@ -20,12 +22,19 @@ export class DetailComponent implements OnInit{
     private router: Router
     ){}
   ngOnInit(): void {
-    this.onGetRecipe();
+    this.onGetRecipe2();
   }
 
   onGetRecipe(): void {
-    // const id = Number(this.activatedRoute.snapshot.paramMap.get('_id')); //mock
-    const id = String(this.activatedRoute.snapshot.paramMap.get('_id'));
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('_id')); //mock
+    // const id = String(this.activatedRoute.snapshot.paramMap.get('_id'));
+
+    const pag = this.activatedRoute.snapshot.paramMap.get('page');
+
+    if(pag){
+      this.pag = pag;
+    }
+
     this.recipeService.getRecipe(id).pipe(
       take(1)
       ).subscribe({
@@ -36,15 +45,25 @@ export class DetailComponent implements OnInit{
     })
   }
   onGetRecipe2(): void {
+    this.activatedRoute.parent.params.subscribe((par) => {
+      const pagina = par['pag'];
+      if(pagina){
+        this.pag = pagina;
+      }
+    })
     this.activatedRoute.params.subscribe((urlParams) => {
       const id = urlParams['_id'];
-      // const idNumb = Number(id); //mock
-      const idNumb = String(id);
+      const idNumb = Number(id); //mock
+      // const idNumb = String(id);
       // const titolo = p['title'];
 
       this.recipeService.getRecipe(idNumb).subscribe(
         res => this.ricetta = res
       );
     })
+  }
+
+  tornaIndietro(){
+    this.router.navigateByUrl('/ricette/' + this.pag)
   }
 }

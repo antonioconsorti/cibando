@@ -1,43 +1,44 @@
-import { Component, OnInit, resolveForwardRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { take } from 'rxjs';
 import { UserService } from 'src/app/services/user.service';
 import * as moment from 'moment';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class ProfileComponent implements OnInit{
+export class ProfileComponent implements OnInit {
+
+  dati: any;
 
   dataRegistrazione: any;
 
-  user: any;
-  user1: any;
+  noteAdd: SafeHtml;
 
-  constructor(private userService: UserService){}
 
-  ngOnInit() {
-    this.readStorage();
-    const email = this.user.email;
 
-    this.userService.getUser(email).subscribe(
-      (res) => {
-        this.user1 = res;
-        this.dataRegistrazione = moment(this.user1.createAt).locale('it').format('dddd DD MMMM YYYY');
-      },
-      (error) => {
-        console.log("Errore durante il recupero dei dati dell'utente:", error);
-      }
-    );
+  constructor(private userService: UserService,private sanitizer: DomSanitizer){
+
+  }
+ ngOnInit(): void {
+  if(JSON.parse(localStorage.getItem('user'))){
+    this.prendiProfilo(JSON.parse(localStorage.getItem('user')).email);
   }
 
-  readStorage() {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-      this.user = user;
-    } else {
-      this.user = null;
-      console.log("Nessun dato trovato in localStorage");
+ }
+
+
+ prendiProfilo(email: string){
+  this.userService.getUser(email).pipe(take(1)).subscribe({
+    next: res => {
+      this.dati = res;
+      this.dataRegistrazione = moment(this.dati.createdAt).locale('it').format('dddd DD MMMM YYYY');
+      this.noteAdd = this.sanitizer.bypassSecurityTrustHtml(res.note);
     }
-  }
+  })
+ }
+
+
 }

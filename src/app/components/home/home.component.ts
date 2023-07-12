@@ -20,13 +20,19 @@ export class HomeComponent implements OnInit{
   ricette: Recipe[];
   ultime4: Recipe[];
 
-  frasePassata: string | undefined;
-  lista = [];
+  oggettoCorrente = "testo dal padre";
 
-  riceviFrase(e: string) {
-    this.lista.push(e);
-    this.frasePassata = e;console.log(e)
+  oggetti = [];
+
+  riceviOggetto(e: string) {
+    console.log(e);
+    this.oggetti.push(e);
+
+    if(e === 'elimina'){
+      this.oggetti = [];
+    }
   }
+
 
   constructor(private recipesService: RecipesService, private userService: UserService, private ngbModal: NgbModal){
   }

@@ -11,6 +11,9 @@
     <img [src]="percorso + ricetta.difficulty + '.png'" class="imgDifficulty">
     <div>Ricetta pubblicata il: {{ricetta.createdAt | date: 'longDate'}}</div>
   </div>
+
+  <button (click)="tornaIndietro()" *ngIf="pag != 0" class="btn btn-primary">TORNA INDIETRO</button>
+  <button routerLink="/home" *ngIf="pag == 0" class="btn btn-primary">INDIETRO</button>
 </div>
 
 <div *ngIf="!ricetta">

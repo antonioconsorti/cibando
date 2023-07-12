@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'combine', component: CombineComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [loggedInGuard] },
   { path: 'user', loadChildren: () => import('./components/user/user.module').then(modulo => modulo.UserModule)},
-  { path: 'ricette', loadChildren: () => import('./components/recipes/recipes.module').then(modulo => modulo.RecipesModule)},
+  { path: 'ricette/:pag', loadChildren: () => import('./components/recipes/recipes.module').then(modulo => modulo.RecipesModule)},
   { path: 'contatti', component: ContattiComponent },
   { path: 'error', component: ErrorComponent },
   { path: '**', redirectTo: 'error' }

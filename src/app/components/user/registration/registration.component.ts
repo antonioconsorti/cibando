@@ -73,10 +73,11 @@ export class RegistrationComponent implements OnInit{
       console.log('nessuna azione da eseguire');
     })
   }
+
   svuotaModulo(){
     this.form.patchValue({
       name: '',
-      email: ''
+      email: '',
     })
   }
   // open(content: any) {
