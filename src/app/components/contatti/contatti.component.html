@@ -1,0 +1,52 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://ambimed-group.com/img/articles/599.jpg');">
+  <div class="mask">
+    <div class="container">
+      <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col-12 col-md-9 col-lg-11 col-xl-11">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body">
+
+                              <div class="divPrimo">
+
+                                <div class="divSecondo">
+                                  <p style="margin-right: 50px;">Piatto preferito???</p>
+                                  <p-cascadeSelect [(ngModel)]="selectedFood" [options]="food" optionLabel="cname" optionGroupLabel="name" [optionGroupChildren]="['states', 'cities']" [style]="{ minWidth: '14rem' }" placeholder="Seleziona"></p-cascadeSelect>
+                                </div>
+
+                                <div class="divSecondo">
+                                  <p style="margin-right: 50px;">Ti è piaciuto il sito???</p>
+                                  <p-rating [(ngModel)]="value">
+                                    <ng-template pTemplate="cancel">
+                                        <img src="https://primefaces.org/cdn/primeng/images/demo/rating/cancel.png" width="25px" height="25px" />
+                                    </ng-template>
+                                    <ng-template pTemplate="onicon">
+                                        <img src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon-active.png" width="25px" height="25px" />
+                                    </ng-template>
+                                    <ng-template pTemplate="officon">
+                                        <img src="https://primefaces.org/cdn/primeng/images/demo/rating/custom-icon.png" width="25px" height="25px" />
+                                    </ng-template>
+                                  </p-rating>
+                                </div>
+
+                                <div class="divTerzo">
+                                  <p>Fai una domanda al cuoco...</p>
+                                  <ckeditor [(ngModel)]="description" [editor]="Editor" class="description" (ready)="onReady($event)"></ckeditor>
+                                </div>
+
+                                <button class="btn btn-primary btn-lg" (click)="salvaDati()">Manda</button>
+
+                              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+

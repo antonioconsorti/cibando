@@ -73,6 +73,12 @@ export class RegistrationComponent implements OnInit{
       console.log('nessuna azione da eseguire');
     })
   }
+  svuotaModulo(){
+    this.form.patchValue({
+      name: '',
+      email: ''
+    })
+  }
   // open(content: any) {
 	// 	const modalRef = this.ngbModal.open(content, {ariaLabelledBy: 'modale privacy', size: 'lg', centered: true});
 	// 	modalRef.componentInstance.name = 'World';

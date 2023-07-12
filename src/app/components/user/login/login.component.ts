@@ -33,7 +33,7 @@ export class LoginComponent {
             this.messageService.add({severity: 'success', summary: 'Successo', detail: 'Login eseguito con successo', life: 3000});
             setTimeout(() => {
               this.router.navigateByUrl('home');
-            }, 3000);
+            }, 1000);
 
           } else {
             this.loginError = 'email o password errati';

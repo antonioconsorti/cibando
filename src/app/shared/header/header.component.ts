@@ -1,4 +1,4 @@
-import { Component, DoCheck} from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -19,6 +19,7 @@ export class HeaderComponent implements DoCheck {
     ){
       this.userService.ruoloUtente.subscribe(res => this.ruolo = res);
     }
+
 
   ngDoCheck(): void {
       if(JSON.parse(localStorage.getItem('user')) !== null ){

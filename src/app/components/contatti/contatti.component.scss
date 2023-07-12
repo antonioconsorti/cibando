@@ -1,0 +1,58 @@
+@import '../../../styles/colors.scss';
+
+.divPrimo{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .divSecondo{
+    margin-top: 50px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+  }
+  .divTerzo{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  p{
+    color: $primary-color-1;
+    font-weight: bold;
+  }
+}
+
+.mask {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.bg-image{
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+}
+.card{
+  border: solid 3px $primary-color-1;
+  color: black;
+  display: flex;
+  align-items: center;
+  .card-body{
+    width: 80%;
+    h2 {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+  }
+}
+button.btn.btn-primary.btn-lg {
+  background-color: $primary-color-1;
+}

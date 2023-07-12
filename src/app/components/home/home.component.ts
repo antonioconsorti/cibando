@@ -20,6 +20,14 @@ export class HomeComponent implements OnInit{
   ricette: Recipe[];
   ultime4: Recipe[];
 
+  frasePassata: string | undefined;
+  lista = [];
+
+  riceviFrase(e: string) {
+    this.lista.push(e);
+    this.frasePassata = e;console.log(e)
+  }
+
   constructor(private recipesService: RecipesService, private userService: UserService, private ngbModal: NgbModal){
   }
 

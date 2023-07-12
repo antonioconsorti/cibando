@@ -1,0 +1,10 @@
+<p>figlio</p>
+<input type="text" [(ngModel)]="fraseInput">
+<ul>
+  <li *ngFor="let elemento of dalPadre">
+    {{ elemento }}
+  </li>
+</ul><button (click)="inviaFrase()">Invia</button>
+<button (click)="pulisciArray()">Pulisci</button>
+<ng-content select="[secondaZona]"></ng-content>
+
